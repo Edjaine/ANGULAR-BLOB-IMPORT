@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { BlobService } from './blob.service';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +18,12 @@ export class AppComponent {
     arquivo2: '',
     arquivo3: ''
   });
-  constructor(private formBuilder: FormBuilder){ }
+  constructor(private formBuilder: FormBuilder,
+              private blobService: BlobService){ }
 
-  public enviaArquivo1(): void{
-    var a1 = this.formUpload.get("arquivo1")?.value
-    console.log(a1);
+  public enviaArquivo1(): void{    
+    var file = this.formUpload.get("arquivo1")?.value
+    this.blobService.adiciona(file.files[0], file.files[0].name);
   }
 
   public enviaArquivo2(): void{

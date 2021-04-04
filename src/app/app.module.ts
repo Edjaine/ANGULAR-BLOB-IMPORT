@@ -38,9 +38,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlobServiceClient } from '@azure/storage-blob';
+import { BlobService } from './blob.service';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTooltipModule,
     MatTreeModule,
   ],
-  providers: [],
+  providers: [              
+              BlobService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
