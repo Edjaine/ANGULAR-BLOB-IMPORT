@@ -1,25 +1,51 @@
-<div class="exemple-container" style="margin: 30px;">
-  <form [formGroup]="formUpload">
-    <div class="row">
-    <mat-form-field style="width: 50%;" appearance="legacy">
-      <ngx-mat-file-input formControlName="arquivo1" placeholder="Inserir o primeiro arquivo" ></ngx-mat-file-input>
-      <mat-icon matSuffix>folder</mat-icon>
-    </mat-form-field>
-    <mat-icon (click) = "enviaArquivo1()">save</mat-icon>
-    </div>
-    <div class="row">
-    <mat-form-field style="width: 50%;" appearance="legacy">
-      <ngx-mat-file-input formControlName="arquivo2" placeholder="Inserir o primeiro arquivo" ></ngx-mat-file-input>
-      <mat-icon matSuffix>folder</mat-icon>
-    </mat-form-field>
-    <mat-icon (click) = "enviaArquivo2()">save</mat-icon>
-    </div>
-    <div class="row">
-    <mat-form-field style="width: 50%;" appearance="legacy">
-      <ngx-mat-file-input formControlName="arquivo3" placeholder="Inserir o primeiro arquivo" ></ngx-mat-file-input>
-      <mat-icon matSuffix>folder</mat-icon>
-    </mat-form-field>
-    <mat-icon (click) = "enviaArquivo3()">save</mat-icon>
+
+<mat-card>
+<mat-card-title>
+  Blob Storage
+</mat-card-title>
+<mat-card-content>
+  <div class="exemple-container" style="margin: 30px;">
+    <form [formGroup]="formUpload">
+      <div  class="row">
+        <div [hidden]="sucesso1">
+          <mat-form-field  style="width: 50%;" appearance="legacy">
+            <ngx-mat-file-input formControlName="arquivo1" placeholder="Inserir o primeiro arquivo" ></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+          </mat-form-field>
+          <mat-icon (click) = "enviaArquivo1()">save</mat-icon>
+        </div>
+        <div [hidden]="!sucesso1">
+          <mat-icon>check</mat-icon> 
+        </div>
+      </div>
+      <div class="row">
+        <div [hidden]="sucesso2">
+          <mat-form-field style="width: 50%;" appearance="legacy">
+            <ngx-mat-file-input formControlName="arquivo2" placeholder="Inserir o segundo arquivo" ></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+          </mat-form-field>
+          <mat-icon (click) = "enviaArquivo2()">save</mat-icon>
+        </div>
+        <div [hidden]="!sucesso2">
+          <mat-icon>check</mat-icon> 
+        </div>
+      </div>
+      <div class="row">
+        <div [hidden]="sucesso3">
+          <mat-form-field style="width: 50%;" appearance="legacy">
+            <ngx-mat-file-input formControlName="arquivo3" placeholder="Inserir o terceiro arquivo" ></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+          </mat-form-field>
+          <mat-icon (click) = "enviaArquivo3()">save</mat-icon>
+        </div>
+        <div [hidden]="!sucesso3">
+          <mat-icon>check</mat-icon> 
+        </div>
+     </div>
+    </form>
   </div>
-  </form>
-</div>
+</mat-card-content>
+</mat-card>
+
+
+
